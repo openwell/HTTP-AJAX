@@ -1,4 +1,6 @@
-.Friend{
+.Friend,
+.NewFriend,
+.FriendUpdate{
     width: 50rem;
     margin: 0 auto;
     border: 1px solid grey;
@@ -7,4 +9,18 @@
 }
 .Friend p{
     line-height: 1rem;
+}
+.NewFriend input,
+.FriendUpdate input{
+  display: block;
+  margin-bottom: 1rem;
+  outline: none;
+  font-size: 1.6rem;
+}
+.NewFriend button,
+.FriendUpdate button{
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  outline: none;
 }

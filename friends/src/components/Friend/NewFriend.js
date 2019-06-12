@@ -9,6 +9,7 @@ class newFriend extends Component {
   };
   newFriendHandler = event => {
     event.preventDefault();
+    event.target.reset();
     const data = {
       name: event.currentTarget[0].value.trim(),
       age: event.currentTarget[1].value.trim(),

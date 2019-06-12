@@ -1,0 +1,10 @@
+.Friend{
+    width: 50rem;
+    margin: 0 auto;
+    border: 1px solid grey;
+    margin-bottom: 1rem;
+    padding: 2rem;
+}
+.Friend p{
+    line-height: 1rem;
+}

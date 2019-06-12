@@ -15,7 +15,6 @@ class friendUpdate extends Component {
     // }
     query.forEach(function(value, key) {
         data[key] = value;
-        console.log(value, key);
       });
     this.setState({ friend: data });
   }
@@ -31,14 +30,13 @@ class friendUpdate extends Component {
     .put(`http://localhost:5000/friends/${this.props.match.params.id}`, data)
       .then(res => {
         if (res.status === 200) this.setState({ message: true });
-        console.log(res);
         setTimeout(() => {
           this.setState({ message: false });
         }, 2000);
       })
 
       .catch(error => {
-        console.log(error);
+        return error;
       });
   };
   render() {

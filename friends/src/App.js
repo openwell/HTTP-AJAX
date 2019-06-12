@@ -8,7 +8,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <ul>
+        <ul className='Header'>
           <Link to="/">Firends</Link>
           <Link to="/new">New Firend</Link>
         </ul>

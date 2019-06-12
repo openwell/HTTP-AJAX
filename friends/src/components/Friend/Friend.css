@@ -6,6 +6,27 @@
     border: 1px solid grey;
     margin-bottom: 1rem;
     padding: 2rem;
+    position: relative;
+}
+.Friend:hover .close{
+    display: block;
+}
+.FriendsWrapper{
+    padding: 1rem;
+}
+.Friend .close{
+    display: none;
+    position: absolute;
+    border-radius: 1rem;
+    cursor: pointer;
+    top: 1rem;
+    right: 1rem;
+    padding: .5rem;
+    border: .1rem solid red;
+}
+.Friend .close:hover{
+    background: black;
+    color: white;
 }
 .Friend p{
     line-height: 1rem;

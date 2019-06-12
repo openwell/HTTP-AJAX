@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Friend from "./Friend";
+import "./Friend.css";
 import uuid from "uuid/v1";
 class Friends extends Component {
   state = {
@@ -11,10 +12,9 @@ class Friends extends Component {
       .get("http://localhost:5000/friends")
       .then(data => this.setState({ friends: data.data }));
   }
-  newPageHandler = path => {
+  newPageHandler = (path) => {
     let details = this.state.friends.filter(elem => elem.id === path);
-    //   console.log(details[0])
-    //    this.props.history.location.search = details[0]
+    this.props.history.location.search = details[0];
     const queryString = [];
     for (let i in details[0]) {
       queryString.push(
@@ -26,13 +26,23 @@ class Friends extends Component {
       pathname: "/" + path,
       search: "?" + queryParams
     });
-    //   console.log(this.props)
+  };
+  deletePostHandler = (event, id) => {
+    event.stopPropagation();
+    axios
+      .delete("http://localhost:5000/friends/" + id)
+      .then(data => this.setState({ friends: data.data }));
   };
   render() {
     return (
-      <div>
+      <div className='FriendsWrapper'>
         {this.state.friends.map(elem => (
-          <Friend key={uuid()} data={elem} newPage={this.newPageHandler} />
+          <Friend
+            key={uuid()}
+            data={elem}
+            newPage={this.newPageHandler}
+            deletePostHandler={this.deletePostHandler}
+          />
         ))}
       </div>
     );

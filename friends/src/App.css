@@ -1,0 +1,24 @@
+.App {
+  text-align: center;
+}
+.Header{
+  background: black;
+  color: white;
+  height: 4rem;
+  text-align: center;
+  padding: 1rem;
+}
+.Header a{
+  padding: 1rem;
+  font-size: 1.6rem;
+  text-decoration: none;
+}
+.Header a:link,
+.Header a:visited{
+ color: white;
+}
+.Header a:hover{
+  text-decoration: underline;
+  text-decoration-color: white;
+}
+

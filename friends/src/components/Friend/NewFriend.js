@@ -22,12 +22,15 @@ class newFriend extends Component {
         if (res.status === 201) this.setState({ message: true });
         this.timerHandle = setTimeout(() => {
           this.setState({ message: false });
+          this.props.history.push('/')
         }, 2000);
       })
       .catch(error => {
         return error;
       });
-     
+    
+      
+
   };
   componentWillUnmount(){                          
     if (this.timerHandle) {                                

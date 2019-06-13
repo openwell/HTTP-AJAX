@@ -23,8 +23,8 @@ class friendUpdate extends Component {
     event.preventDefault();
     const data = {
       name: event.currentTarget[0].value.trim(),
-      age: event.currentTarget[1].value.trim(),
-      email: event.currentTarget[2].value.trim()
+      email: event.currentTarget[1].value.trim(),
+      age: event.currentTarget[2].value.trim()
     };
     event.target.reset();
     axios
@@ -33,6 +33,7 @@ class friendUpdate extends Component {
         if (res.status === 200) this.setState({ message: true });
         this.timerHandle = setTimeout(() => {
           this.setState({ message: false });
+          this.props.history.push('/')
         }, 2000);
       })
 

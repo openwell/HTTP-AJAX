@@ -31,7 +31,7 @@ class friendUpdate extends Component {
     .put(`http://localhost:5000/friends/${this.props.match.params.id}`, data)
       .then(res => {
         if (res.status === 200) this.setState({ message: true });
-        setTimeout(() => {
+        this.timerHandle = setTimeout(() => {
           this.setState({ message: false });
         }, 2000);
       })
@@ -40,6 +40,12 @@ class friendUpdate extends Component {
         return error;
       });
   };
+  componentWillUnmount(){                          
+    if (this.timerHandle) {                                
+        clearTimeout(this.timerHandle);    
+        this.timerHandle = 0;                
+    }                                        
+  }; 
   render() {
       const {name, age, email} = this.state.friend
     return (

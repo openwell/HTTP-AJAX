@@ -20,7 +20,7 @@ class newFriend extends Component {
       .then(res => {
         console.log(res)
         if (res.status === 201) this.setState({ message: true });
-        setTimeout(() => {
+        this.timerHandle = setTimeout(() => {
           this.setState({ message: false });
         }, 2000);
       })
@@ -28,6 +28,12 @@ class newFriend extends Component {
         return error;
       });
      
+  };
+  componentWillUnmount(){                          
+    if (this.timerHandle) {                                
+        clearTimeout(this.timerHandle);    
+        this.timerHandle = 0;                
+    }                                        
   };
   render() {
     return (

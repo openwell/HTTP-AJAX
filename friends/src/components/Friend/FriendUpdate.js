@@ -21,12 +21,12 @@ class friendUpdate extends Component {
 
   editHandle  = event => {
     event.preventDefault();
-    event.target.reset();
     const data = {
       name: event.currentTarget[0].value.trim(),
       age: event.currentTarget[1].value.trim(),
       email: event.currentTarget[2].value.trim()
     };
+    event.target.reset();
     axios
     .put(`http://localhost:5000/friends/${this.props.match.params.id}`, data)
       .then(res => {

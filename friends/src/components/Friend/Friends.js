@@ -14,7 +14,7 @@ class Friends extends Component {
   }
   newPageHandler = (path) => {
     let details = this.state.friends.filter(elem => elem.id === path);
-    this.props.history.location.search = details[0];
+    // this.props.history.location.search = details[0];
     const queryString = [];
     for (let i in details[0]) {
       queryString.push(

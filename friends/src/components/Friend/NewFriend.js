@@ -9,23 +9,34 @@ class newFriend extends Component {
   };
   newFriendHandler = event => {
     event.preventDefault();
-    event.target.reset();
     const data = {
       name: event.currentTarget[0].value.trim(),
       age: event.currentTarget[1].value.trim(),
       email: event.currentTarget[2].value.trim()
     };
+    event.currentTarget.reset();
     axios
       .post("http://localhost:5000/friends", data)
       .then(res => {
+        console.log(res)
         if (res.status === 201) this.setState({ message: true });
-        setTimeout(() => {
+        this.timerHandle = setTimeout(() => {
           this.setState({ message: false });
+          this.props.history.push('/')
         }, 2000);
       })
       .catch(error => {
         return error;
       });
+    
+      
+
+  };
+  componentWillUnmount(){                          
+    if (this.timerHandle) {                                
+        clearTimeout(this.timerHandle);    
+        this.timerHandle = 0;                
+    }                                        
   };
   render() {
     return (
